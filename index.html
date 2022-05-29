@@ -1,0 +1,471 @@
+<!--
+    A fun project that I'm creating inspired by the orignal Adventure Quest by Artix
+
+    To do:
+    - Finish creating objects for the off-hand and armors in charater.equipment.js
+
+    Things I might add in the future:
+    - Skill base system
+
+    Author: Ming Li
+    Date: 5/23/2022
+    File: index.html
+-->
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>StickMan Adventure</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/core_styles.css">
+        <link rel="stylesheet" href="css/battle.css">
+        <link rel="stylesheet" href="css/action-bar-skins.css">
+    </head>
+
+    <body>
+        <!-- Shows when the user window is lower than 1620px for now -->
+        <div class="warning hidden">
+            <h1>The window screen needs to be more than 1620px width for now, sorry :( <br>But you can try to zoom out :)</h1>
+        </div>
+
+        <!-- Side Bar -->
+        <aside>
+            <h1>StickMan Adventure</h1>
+            <p>This will be removed later. A fun project that I'm creating inspired by the orignal Adventure Quest by Artix.</p>
+        </aside>
+
+        <!-- Main content where the user would mostly see -->
+        <main>
+            <div class="game-screen">
+                <div class="battle">
+                    <!-- Background image for the locaiton or other -->
+                    <div class="background background-1 noselect">
+                        <!-- Player Magic -->
+                        <div class="player-magic hidden">
+                            <ul>
+                                <li class="button spell-slot-0">-----</li>
+                                <li class="button spell-slot-1">-----</li>
+                                <li class="button spell-slot-2">-----</li>
+                                <li class="button spell-slot-3">-----</li>
+                                <li class="button spell-slot-4">-----</li>
+                                <li class="button spell-slot-5">-----</li>
+                                <li class="button spell-slot-6">-----</li>
+                                <li class="button spell-slot-7">-----</li>
+                                <li class="button spell-slot-8">-----</li>
+                                <li class="button spell-slot-9">-----</li>
+                                <li class="button spell-slot-10">-----</li>
+                                <li class="button spell-slot-11">-----</li>
+                                <li class="button spell-slot-12">-----</li>
+                            </ul>
+                        </div>
+
+                        <!-- Player Items -->
+                        <div class="player-items hidden">
+                            <ul>
+                                <li class="button item-slot-0"><img src="images/character/items/healing-potion.png" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-1"><img src="images/character/items/mana-potion.png" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-2"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-3"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-4"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-5"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-6"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-7"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-8"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-9"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-10"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-11"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-12"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-13"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                                <li class="button item-slot-14"><img src="" alt=""><p class="item-capactiy">0</p></li>
+                            </ul>
+                        </div>
+
+                        <!-- Player Equipment -->
+                        <div class="player-equipment hidden">
+                            <div>
+                                <ul class="player-equipment-main-hand">
+                                    <!-- Main Hand -->
+                                    <li class="button equipped"><p>Starter Knife</p></li>
+                                    <li class="button">Bow</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                </ul>
+
+                                <!-- Off-Hand -->
+                                <ul class="player-equipment-off-hand">
+                                    <li class="button equipped">Starter Shield</li>
+                                    <li class="button">Flaming Arrow</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                </ul>
+
+                                <ul class="player-equipment-armor">
+                                    <!-- Armor -->
+                                    <li class="button equipped">Base Form</li>
+                                    <li class="button">Angry</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                    <li class="button">-----</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="player-pet hidden">
+                            <ul>
+                                <li class="button item-slot-10"><img src="" alt=""></li>
+                                <li class="button item-slot-11"><img src="" alt=""></li>
+                                <li class="button item-slot-12"><img src="" alt=""></li>
+                                <li class="button item-slot-13"><img src="" alt=""></li>
+                                <li class="button item-slot-14"><img src="" alt=""></li>
+                            </ul>
+                        </div>
+
+                        <!-- Player Stats -->
+                        <div class="player-stats hidden">
+                            <div>
+                                <h1>Player's Name Here</h1>
+                                <p id="player-stats-class">Class: <span>None</span></p>
+                            </div>
+
+                            <div class="grid-base">
+                                <!-- 1st Section -->
+                                <div>
+                                    <div>
+                                        <h2>Information</h2>
+                                        <p id="player-stats-level">Level <span>1</span></p>
+                                        <p id="player-stats-required-xp">XP <span>100</span></p>
+                                        <p id="player-stats-gold">Gold <span>0</span></p>
+                                        <p id="player-stats-gem">Gem <span>0</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Main Attributes</h2>
+                                        <p id="player-stats-strength">Strength <span>10</span></p>
+                                        <p id="player-stats-dexterity">Dexterity <span>10</span></p>
+                                        <p id="player-stats-constitution">Constitution <span>10</span></p>
+                                        <p id="player-stats-intellect">Intellect <span>10</span></p>
+                                        <p id="player-stats-wisdom">Wisdom <span>10</span></p>
+                                        <p id="player-stats-luck">Luck <span>10</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Ex. Attributes</h2>
+                                        <p id="player-stats-crit-chance">Crit C <span>5.0%</span></p>
+                                        <p id="player-stats-crit-damage">Crit D <span>200%</span></p>
+                                        <p id="player-stats-speed">Speed <span>1.0</span></p>
+                                        <p id="player-stats-dodge">Dodge <span>5.0%</span></p>
+                                        <p id="player-stats-block">Block <span>5.0%</span></p>
+                                        <p id="player-stats-parry">Parry <span>5.0%</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Ex. Damage</h2>
+                                        <p id="player-stats-extra-melee">Ex. Melee <span>+0</span></p>
+                                        <p id="player-stats-extra-range">Ex. Range <span>+0</span></p>
+                                        <p id="player-stats-extra-magic">Ex. Magic <span>+0</span></p>
+                                    </div>
+                                </div>
+
+                                <!-- 2nd Section -->
+                                <div>
+                                    <div>
+                                        <h2>Core Resistance</h2>
+                                            <p id="player-stats-melee">Melee <span>0%</span></p>
+                                        <p id="player-stats-range">Range <span>0%</span></p>
+                                        <p id="player-stats-magic">Magic <span>0%</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Elemental Resistance</h2>
+                                        <p id="player-stats-fire">Fire <span>0%</span></p>
+                                        <p id="player-stats-water">Water <span>0%</span></p>
+                                        <p id="player-stats-earth">Earth <span>0%</span></p>
+                                        <p id="player-stats-wind">Wind <span>0%</span></p>
+                                        <p id="player-stats-ice">Ice <span>0%</span></p>
+                                        <p id="player-stats-lightning">Lightning <span>0%</span></p>
+                                        <p id="player-stats-holy">Holy <span>0%</span></p>
+                                        <p id="player-stats-darkness">Darkness <span>0%</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Ex. Resistance</h2>
+                                        <p id="player-stats-burning">Burning <span>0%</span></p>
+                                        <p id="player-stats-bleed">Bleed <span>0%</span></p>
+                                        <p id="player-stats-poison">Poison <span>0%</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Ex. Duration</h2>
+                                        <p id="player-stats-burning-duration">Burning <span>-0%</span></p>
+                                        <p id="player-stats-bleed-duration">Bleed <span>-0%</span></p>
+                                        <p id="player-stats-poison-duration">Poison <span>-0%</span></p>
+                                    </div>
+                                </div>
+
+                                <!-- 3rd Section -->
+                                <div>
+                                    <div>
+                                        <h2>Equipment</h2>
+                                        <p id="player-stats-main">Main-H <span></span></p>
+                                        <p id="player-stats-off">Off-H <span></span></p>
+                                        <p id="player-stats-armor">Armor <span></span></p>
+                                        <p id="player-stats-pet">Pet <span></span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Buffs</h2>
+                                        <p id="player-stats-buffs-slot-0">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-buffs-slot-1">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-buffs-slot-2">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-buffs-slot-3">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-buffs-slot-4">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-buffs-slot-5">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-buffs-slot-6">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-buffs-slot-7">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-buffs-slot-8">-----<span>0 Turns</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Debuffs</h2>
+                                        <p id="player-stats-debuffs-slot-0">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-debuffs-slot-1">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-debuffs-slot-2">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-debuffs-slot-3">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-debuffs-slot-4">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-debuffs-slot-5">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-debuffs-slot-6">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-debuffs-slot-7">-----<span>0 Turns</span></p>
+                                        <p id="player-stats-debuffs-slot-8">-----<span>0 Turns</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enemy Stats -->
+                        <div class="enemy-stats hidden">
+                            <div>
+                                <h1>Enemy's Name</h1>
+                                <p id="enemy-stats-race">Race: <span>None</span></p>
+                            </div>
+
+                            <div class="grid-base">
+                                <!-- 1st Section -->
+                                <div>
+                                    <div>
+                                        <h2>Information</h2>
+                                        <p id="enemy-stats-level">Level <span>1</span></p>
+                                        <p id="enemy-stats-xp">XP <span>100</span></p>
+                                        <p id="enemy-stats-gold">Gold <span>0</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Main Attributes</h2>
+                                        <p id="enemy-stats-strength">Strength <span>10</span></p>
+                                        <p id="enemy-stats-dexterity">Dexterity <span>10</span></p>
+                                        <p id="enemy-stats-constitution">Constitution <span>10</span></p>
+                                        <p id="enemy-stats-intellect">Intellect <span>10</span></p>
+                                        <p id="enemy-stats-wisdom">Wisdom <span>10</span></p>
+                                        <p id="enemy-stats-luck">Luck <span>10</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Ex. Attributes</h2>
+                                        <p id="enemy-stats-crit-chance">Crit C <span>5.0%</span></p>
+                                        <p id="enemy-stats-crit-damage">Crit D <span>200%</span></p>
+                                        <p id="enemy-stats-speed">Speed <span>1.0</span></p>
+                                        <p id="enemy-stats-dodge">Dodge <span>5.0%</span></p>
+                                        <p id="enemy-stats-block">Block <span>5.0%</span></p>
+                                        <p id="enemy-stats-parry">Parry <span>5.0%</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Ex. Damage</h2>
+                                        <p id="enemy-stats-extra-melee">Ex. Melee <span>+0</span></p>
+                                        <p id="enemy-stats-extra-range">Ex. Range <span>+0</span></p>
+                                        <p id="enemy-stats-extra-magic">Ex. Magic <span>+0</span></p>
+                                    </div>
+                                </div>
+
+                                <!-- 2nd Section -->
+                                <div>
+                                    <div>
+                                        <h2>Core Resistance</h2>
+                                        <p id="enemy-stats-melee">Melee <span>0%</span></p>
+                                        <p id="enemy-stats-range">Range <span>0%</span></p>
+                                        <p id="enemy-stats-magic">Magic <span>0%</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Elemental Resistance</h2>
+                                        <p id="enemy-stats-fire">Fire <span>0%</span></p>
+                                        <p id="enemy-stats-water">Water <span>0%</span></p>
+                                        <p id="enemy-stats-earth">Earth <span>0%</span></p>
+                                        <p id="enemy-stats-wind">Wind <span>0%</span></p>
+                                        <p id="enemy-stats-ice">Ice <span>0%</span></p>
+                                        <p id="enemy-stats-lightning">Lightning <span>0%</span></p>
+                                        <p id="enemy-stats-holy">Holy <span>0%</span></p>
+                                        <p id="enemy-stats-darkness">Darkness <span>0%</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Ex. Resistance</h2>
+                                        <p id="enemy-stats-burning">Burning <span>0%</span></p>
+                                        <p id="enemy-stats-bleed">Bleed <span>0%</span></p>
+                                        <p id="enemy-stats-poison">Poison <span>0%</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Ex. Duration</h2>
+                                        <p id="enemy-stats-burning-duration">Burning <span>-0%</span></p>
+                                        <p id="enemy-stats-bleed-duration">Bleed <span>-0%</span></p>
+                                        <p id="enemy-stats-poison-duration">Poison <span>-0%</span></p>
+                                    </div>
+                                </div>
+
+                                <!-- 3rd Section -->
+                                <div>
+                                    <div>
+                                        <h2>Buffs</h2>
+                                        <p id="enemy-stats-buffs-slot-0">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-buffs-slot-1">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-buffs-slot-2">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-buffs-slot-3">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-buffs-slot-4">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-buffs-slot-5">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-buffs-slot-6">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-buffs-slot-7">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-buffs-slot-8">-----<span>0 Turns</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Debuffs</h2>
+                                        <p id="enemy-stats-debuffs-slot-0">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-debuffs-slot-1">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-debuffs-slot-2">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-debuffs-slot-3">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-debuffs-slot-4">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-debuffs-slot-5">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-debuffs-slot-6">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-debuffs-slot-7">-----<span>0 Turns</span></p>
+                                        <p id="enemy-stats-debuffs-slot-8">-----<span>0 Turns</span></p>
+                                    </div>
+
+                                    <div>
+                                        <h2>Loot Drop Chance</h2>
+                                        <p id="enemy-stats-loot-slot-0">Something<span>5%</span></p>
+                                        <p id="enemy-stats-loot-slot-1">Something<span>5%</span></p>
+                                        <p id="enemy-stats-loot-slot-2">Something<span>5%</span></p>
+                                        <p id="enemy-stats-loot-slot-3">Something<span>5%</span></p>
+                                        <p id="enemy-stats-loot-slot-4">Something<span>5%</span></p>
+                                        <p id="enemy-stats-loot-slot-5">Something<span>5%</span></p>
+                                        <p id="enemy-stats-loot-slot-6">Something<span>5%</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Player Character -->
+                        <div class="player-character">
+                            <img id="player-character-main-hand" src="" alt="Stickman main hand">
+                            <img id="player-character-body" src="" alt="Stickman body">
+                            <img id="player-character-off-hand" src="" alt="Stickman off hand">
+                            <img id="player-character-pet" src="images/character/pets/magic cat.png" alt="Pet">
+                        </div>
+
+                        <!-- Enemy Character -->
+                        <div class="enemy-character">
+                            <img src="images/character/enemies/skeleton-base.png" alt="Stickman body">
+                        </div>
+
+                        <!-- Health, mana, special, xp -->
+                        <div class="player-bar all-bars">
+                            <h2>Player Name here</h2>
+
+                            <div class="player-health">
+                                <p><span id="player-health-remaining">100</span>/<span id="player-health-max">100</span></p>
+                                <div></div>
+                            </div>
+
+                            <div class="player-mana">
+                                <p><span id="player-mana-remaining">100</span>/<span id="player-mana-max">100</span></p>
+                                <div></div>
+                            </div>
+
+                            <div class="player-sp">
+                                <p><span id="player-sp-remaining">20</span>/<span id="player-sp-max">100</span></p>
+                                <div></div>
+                            </div>
+
+                            <div class="player-xp">
+                                <p class="hidden"><span id="player-xp-remaining">100</span>/<span id="player-xp-max">100</span></p>
+                                <div></div>
+                            </div>
+                        </div>
+
+                        <div class="enemy-bar all-bars">
+                            <h2>Enemy's Name</h2>
+                            <div class="enemy-health">
+                                <p>100</p>
+                                <div></div>
+                            </div>
+
+                            <div class="enemy-mana">
+                                <p class="hidden">100</p>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- A bar of Actions that the player can take -->
+                    <div class="action-bar noselect action-bar-skin-0">
+                        <button class="button action-attack">Attack</button>
+                        <button class="button action-magic">Magic</button>
+                        <button class="button action-items">Items</button>
+                        <button class="button action-equipment">Equipment</button>
+                        <button class="button action-pet">Pet / Companion</button>
+                        <button class="button action-run"></button>
+                        <button class="button action-skin">S</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Scripts -->
+        <script src="Javascript/player-stats.js"></script>
+        <script src="Javascript/character-equipments.js"></script>
+        <script src="Javascript/battle_event_action_bar.js"></script>
+    </body>
+</html>

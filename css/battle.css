@@ -1,0 +1,390 @@
+/*
+    CSS for battle events
+
+    Author: Ming Li
+    Date: 5/24/2022
+    File: battle.css
+*/
+@import url(core_styles.css);
+
+.background {
+    width: 100%;
+    height: 660px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/forest.png);
+}
+
+.background {
+    position: relative;
+}
+
+.button {
+    font-size: 2rem;
+
+    background-color: white;
+}
+
+.button:hover {
+    color: white;
+    background-color: var(--button-dark-gray);
+}
+
+.button:active {
+    color: cyan;
+}
+
+/* Character
+======================================================================================================================*/
+.player-character {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.player-character img{
+    position: absolute;
+}
+
+/* Character & Enemy Stats
+======================================================================================================================*/
+.player-stats, .enemy-stats {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    padding: .5rem;
+    width: calc(50% - 40px);
+    height: calc(100% - 128px - 8px - 20px);
+
+    background-color: rgba(0,0,0,.5);
+    border: 5px solid black;
+
+    overflow: hidden;
+    z-index: 100;
+}
+
+.enemy-stats {
+    height: calc(100% - 99px - 20px);
+}
+
+#player-stats-class {
+    margin-bottom: 1rem;
+}
+
+.player-stats h1, .enemy-stats h1 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid white;
+}
+
+.player-stats h2, .enemy-stats h2 {
+    font-size: 1rem;
+
+    border-bottom: 1px solid white;
+}
+
+.player-stats p, .enemy-stats p {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.player-stats span, .enemy-stats span {
+    color: cyan;
+}
+
+/* Enemy
+======================================================================================================================*/
+.enemy-character {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+
+.enemy-stats {
+    left: calc(50% + 20px);
+}
+
+/* Health, Mana, Special Points, XP bars
+======================================================================================================================*/
+.all-bars p {
+    font-size: 1.5rem;
+}
+
+.player-bar, .enemy-bar {
+    margin: 0 .5rem .5rem;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.enemy-bar {
+    right: 0;
+}
+
+.player-bar h2, .enemy-bar h2 {
+    width: 250px;
+
+    text-align: center;
+    font-size: 1rem;
+    overflow-wrap: break-word;
+}
+
+/* Health */
+.player-health, .enemy-health,
+.player-mana, .enemy-mana,
+.player-sp {
+    position: relative;
+
+    width: 250px;
+    height: 30px;
+    margin-bottom: 2px;
+
+    background-color: gray;
+
+    overflow: hidden;
+}
+
+.enemy-health {
+    height: 55px;
+}
+
+.enemy-mana {
+    height: 5px;
+}
+
+.enemy-health p {
+    font-size: 3rem;
+}
+
+.player-health p, .enemy-health p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player-health div, .enemy-health div {
+    width: 100%;
+    height: 30px;
+
+    background-color: var(--sizzling-red);
+}
+
+.enemy-health div {
+    height: 55px;
+}
+
+/* Mana */
+.player-mana p, .enemy-mana p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player-mana div, .enemy-mana div {
+    width: 100%;
+    height: 30px;
+
+    background-color: var(--crayola-blue);
+}
+
+.enemy-mana div {
+    height: 5px;
+}
+
+/* SP */
+.player-sp p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player-sp div {
+    width: 20%;
+    height: 30px;
+
+    background-color: var(--screasmin-green);
+}
+
+/* XP */
+.player-xp {
+    position: relative;
+
+    width: 100%;
+    height: 5px;
+
+    background-color: gray;
+}
+
+.player-xp div {
+    position: absolute;
+
+    width: 0;
+    height: 5px;
+
+    background-color: var(--yellow-red);
+}
+
+/* Action Bar
+======================================================================================================================*/
+.action-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr .7fr .2fr .2fr;
+    gap: .5rem;
+    grid-template-areas:
+    "attack attack magic magic magic magic"
+    "items equipment pet pet run skin";
+
+    width: 100%;
+    height: 106px;
+    padding: .5rem;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Player Actions
+======================================================================================================================*/
+.action-attack {
+    grid-area: attack;
+}
+
+.action-magic {
+    grid-area: magic;
+}
+
+.action-items {
+    grid-area: items;
+}
+
+.action-equipment {
+    grid-area: equipment;
+}
+
+.action-pet {
+    grid-area: pet;
+}
+
+.action-run {
+    background: url(../images/action-bar-skins/escape.png);
+    grid-area: run;
+}
+
+.action-skin {
+    background: none;
+    grid-area: skin;
+}
+
+/* Magic, Items, Equipment, pet popups
+======================================================================================================================*/
+.player-magic, .player-equipment, .player-items, .player-pet {
+    position: absolute;
+    bottom: -8px;
+    right: 8px;
+
+    padding: 1rem;
+    width: 676px;
+    height: 80%;
+
+    background-color: rgba(0,0,0,.5);
+
+    z-index: 100;
+}
+
+.player-items {
+    bottom: calc(-16px - 41px);
+    left: 8px;
+    right: 0;
+
+    padding: .5rem;
+    width: 319px;
+}
+
+.player-equipment {
+    bottom: calc(-16px - 41px);
+    left: 25%;
+    transform: translateX(-25%);
+    gap: .5rem;
+
+    width: 80%;
+}
+
+.player-pet {
+    bottom: calc(-16px - 41px);
+    left: 48.5%;
+
+    height: calc(100px + 32px);
+    width: 550px;
+}
+
+.player-equipment div {
+    display: flex;
+}
+
+/* Box or popup */
+.player-magic ul, .player-equipment ul, .player-items ul, .player-pet ul {
+    text-align: center;
+}
+
+.player-items ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.player-equipment div ul {
+    width: 100%;
+    overflow: hidden;
+}
+
+.player-pet ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+/* Box or popup Items */
+.player-magic ul li, .player-equipment ul li, .player-items ul li, .player-pet ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+    padding: 0 5px;
+    height: 31px;
+
+    font-size: 1rem;
+    color: black;
+
+    list-style: none;
+    border: 2px solid black;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.player-items ul li {
+    position: relative;
+    margin-bottom: 0;
+    padding: 0;
+    height: 100px;
+    width: 100px;
+
+    border: 1px solid black;
+}
+
+.player-items ul li .item-capactiy{
+    position: absolute;
+    bottom: 0;
+    right: 1px;
+}
+
+.player-pet ul li {
+    width: auto;
+    height: 100px;
+}
+
+/* Shows what curent player equipped items are */
+.player-magic ul li.equipped, .player-equipment ul li.equipped {
+    color: var(--screasmin-green);
+    background-color: var(--dark-gray);
+}
