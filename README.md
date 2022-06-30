@@ -22,7 +22,3 @@ Some other cool visual effects:
 - Button hover shade
 - Button Click light-up
 - Equipped gear will be shown
-
-
-## Live Coding 🔴
-Here is my [Youtube](https://www.youtube.com/channel/UCAAC8sC_qN_H1nhq8eOVzUA/featured) as I'll be starting to stream me coding this project since it'll be cool to talk to other people and maybe get some some tips and tricks as I'm am still a novice coder as if the date I'm writing this.
