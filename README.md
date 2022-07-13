@@ -1,4 +1,4 @@
-# StickMan-Adventure (In-Progress)
+# StickMan-Adventure UI
 ![Game preview StickMan-Adventure](images/ReadMe-Images/front-image.png)
 [Live Site](https://mingrkli.github.io/StickMan-Adventure/)
 
